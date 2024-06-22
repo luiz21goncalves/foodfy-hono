@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "bun --env-file=.env.development run --hot src/server.ts",
-    "build": "bun build src/server.ts --outdir dist --minify --format esm --splitting",
+    "build": "bun build src/server.ts --outdir dist --minify --format esm --splitting --target bun",
     "start": "bun run dist/server.js"
   },
   "dependencies": {
