@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "bun --env-file=.env.development run --hot src/server.ts",
     "build": "bun build src/server.ts --outdir dist --minify --format esm --splitting --target bun",
-    "start": "bun run dist/server.js"
+    "start": "bun run dist/server.js",
+    "lint": "bunx @biomejs/biome check .",
+    "lint:fix": "bunx @biomejs/biome check --write ."
   },
   "dependencies": {
     "drizzle-orm": "0.31.2",
