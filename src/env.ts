@@ -4,4 +4,4 @@ const envSchema = z.object({
   PORT: z.coerce.number()
 })
 
-export const ENV = envSchema.parse(process.env)
+export const ENV = envSchema.parse(Bun.env)
