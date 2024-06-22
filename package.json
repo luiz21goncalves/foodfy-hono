@@ -1,7 +1,7 @@
 {
   "name": "foodfy-hono",
   "scripts": {
-    "dev": "bun run --hot src/index.ts"
+    "dev": "bun --env-file=.env.development run --hot src/server.ts"
   },
   "dependencies": {
     "hono": "4.4.7"
