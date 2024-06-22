@@ -1,5 +1,7 @@
 import { Hono } from 'hono'
 
+import { version } from '../package.json'
+
 const app = new Hono()
 
 app.get('/', (c) => {
@@ -9,7 +11,7 @@ app.get('/', (c) => {
 app.get('/v1/status', (c) => {
   return c.json({
     updated_at: new Date().toISOString(),
-    version: Bun.env.npm_package_version
+    version
   })
 })
 
