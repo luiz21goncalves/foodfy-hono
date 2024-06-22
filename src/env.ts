@@ -8,6 +8,6 @@ const envSchema = z.object({
   POSTGRESQL_HOST: z.string(),
   POSTGRESQL_PORT: z.coerce.number(),
   DATABASE_URL: z.string().url(),
-})
+});
 
-export const ENV = envSchema.parse(Bun.env)
+export const ENV = envSchema.parse(Bun.env);
