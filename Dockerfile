@@ -8,7 +8,7 @@ COPY package.json bun.lockb ./
 RUN bun install --frozen-lockfile
 WORKDIR /temp/prod
 COPY package.json bun.lockb ./
-RUN bun install --frozen-lockfile --production
+RUN bun install --frozen-lockfile --production --ignore-scripts
 
 FROM base AS builder
 COPY --from=dependencies /temp/dev/node_modules node_modules
