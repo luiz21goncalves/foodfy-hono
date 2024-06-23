@@ -1,9 +1,9 @@
 import { sql } from "drizzle-orm";
 import { Hono } from "hono";
 
-import { version } from "../package.json";
-import { db } from "./db/connection";
-import { ENV } from "./env";
+import { version } from "../../package.json";
+import { db } from "../db/connection";
+import { ENV } from "../env";
 
 const app = new Hono();
 

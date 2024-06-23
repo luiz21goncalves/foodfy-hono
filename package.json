@@ -2,8 +2,8 @@
   "name": "foodfy-hono",
   "version": "0.0.0",
   "scripts": {
-    "dev": "bun --env-file=.env.development run --hot src/server.ts",
-    "build": "bun build src/server.ts --outdir dist --minify --format esm --splitting --target bun",
+    "dev": "bun --env-file=.env.development run --hot src/http/server.ts",
+    "build": "bun build src/http/server.ts --outdir dist --minify --format esm --splitting --target bun",
     "start": "bun run dist/server.js",
     "lint": "bunx @biomejs/biome check .",
     "lint:fix": "bunx @biomejs/biome check --write .",

@@ -1,5 +1,5 @@
+import { ENV } from "../env";
 import { app } from "./app";
-import { ENV } from "./env";
 
 export default {
   fetch: app.fetch,
