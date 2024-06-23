@@ -12,6 +12,7 @@
     "test:cov": "bun test --coverage"
   },
   "dependencies": {
+    "@paralleldrive/cuid2": "2.2.2",
     "drizzle-orm": "0.31.2",
     "hono": "4.4.7",
     "pg": "8.12.0",
