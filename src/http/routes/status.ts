@@ -1,10 +1,11 @@
 import { sql } from "drizzle-orm";
 import { Hono } from "hono";
-
 import { endTime, startTime } from "hono/timing";
+
+import { db } from "@/db/connection";
+import { ENV } from "@/env";
+
 import { version } from "../../../package.json";
-import { db } from "../../db/connection";
-import { ENV } from "../../env";
 
 export const status = new Hono().get("/", async (c) => {
   startTime(c, "database_version");

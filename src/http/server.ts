@@ -1,4 +1,5 @@
-import { ENV } from "../env";
+import { ENV } from "@/env";
+
 import { app } from "./app";
 
 export default {
