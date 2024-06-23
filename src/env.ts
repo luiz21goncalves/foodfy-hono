@@ -11,4 +11,4 @@ const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
 });
 
-export const ENV = envSchema.parse(Bun.env);
+export const ENV = envSchema.parse(process.env);
