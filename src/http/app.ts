@@ -6,6 +6,7 @@ import { secureHeaders } from "hono/secure-headers";
 import { timeout } from "hono/timeout";
 import { timing } from "hono/timing";
 
+import { ENV } from "@/env";
 import { routes } from "./routes";
 
 const app = new Hono();
@@ -14,7 +15,10 @@ const DEFAULT_TIMEOUT = 5000; // 5 seconds
 
 app.use("/api/*", cors());
 app.use("/api/*", etag());
-app.use("/api/*", logger());
+app.use(
+  "/api/*",
+  logger(ENV.NODE_ENV === "test" ? (message, rest) => {} : undefined),
+);
 app.use("/api/*", secureHeaders());
 app.use("/api/*", timing());
 app.use("/api/*", timeout(DEFAULT_TIMEOUT));

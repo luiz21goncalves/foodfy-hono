@@ -17,6 +17,7 @@ ENV NODE_ENV=production
 RUN bun run build
 
 FROM base AS release
+ENV NODE_ENV=production
 COPY --from=dependencies /temp/prod/node_modules node_modules
 COPY --from=builder /usr/src/app/dist dist
 COPY --from=builder /usr/src/app/package.json .

@@ -5,8 +5,6 @@ import { type ApiRoutes, app } from "@/http/app";
 
 describe("GET /api/v1/status", () => {
   it("should be able to get api status", async () => {
-    console.log(Bun.env.NODE_ENV);
-
     const date = new Date();
     setSystemTime(date);
 
