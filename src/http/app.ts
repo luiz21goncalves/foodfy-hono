@@ -17,7 +17,11 @@ app.use("/api/*", cors());
 app.use("/api/*", etag());
 app.use(
   "/api/*",
-  logger(ENV.NODE_ENV === "test" ? (message, rest) => {} : undefined),
+  logger(
+    ENV.NODE_ENV === "test"
+      ? (_message: string, ..._rest: string[]) => {}
+      : undefined,
+  ),
 );
 app.use("/api/*", secureHeaders());
 app.use("/api/*", timing());
