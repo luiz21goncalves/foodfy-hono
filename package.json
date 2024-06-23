@@ -7,7 +7,9 @@
     "start": "bun run dist/server.js",
     "lint": "bunx @biomejs/biome check .",
     "lint:fix": "bunx @biomejs/biome check --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "bun test",
+    "test:cov": "bun test --coverage"
   },
   "dependencies": {
     "drizzle-orm": "0.31.2",
