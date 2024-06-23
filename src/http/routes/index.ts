@@ -5,9 +5,10 @@ import { logger } from "hono/logger";
 import { secureHeaders } from "hono/secure-headers";
 import { timeout } from "hono/timeout";
 import { timing } from "hono/timing";
-import { getStatus } from "./status";
 
-const apiRoutes = new Hono().basePath("/v1");
+import { status } from "./status";
+
+const apiRoutes = new Hono().basePath("/v1").route("/status", status);
 
 const DEFAULT_TIMEOUT = 5000; // 5 seconds
 
@@ -17,7 +18,5 @@ apiRoutes.use(logger());
 apiRoutes.use(secureHeaders());
 apiRoutes.use(timing());
 apiRoutes.use(timeout(DEFAULT_TIMEOUT));
-
-apiRoutes.route("/", getStatus);
 
 export { apiRoutes };

@@ -2,8 +2,7 @@ import { Hono } from "hono";
 
 import { apiRoutes } from "./routes";
 
-const app = new Hono();
+const app = new Hono().route("/api", apiRoutes);
 
-app.route("/api", apiRoutes);
-
+export type ApiRoutes = typeof app;
 export { app };

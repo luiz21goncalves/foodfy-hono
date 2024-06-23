@@ -6,7 +6,7 @@ import { version } from "../../../package.json";
 import { db } from "../../db/connection";
 import { ENV } from "../../env";
 
-export const getStatus = new Hono().get("/status", async (c) => {
+export const status = new Hono().get("/", async (c) => {
   startTime(c, "database_version");
   const databaseVersion = (
     await db.execute<{ server_version: string }>(sql`SHOW server_version`)
