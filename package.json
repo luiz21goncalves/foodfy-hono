@@ -9,7 +9,10 @@
     "lint:fix": "bunx @biomejs/biome check --write .",
     "prepare": "husky",
     "test": "bun test",
-    "test:cov": "bun test --coverage"
+    "test:cov": "bun test --coverage",
+    "generate": "bun --env-file=.env.development drizzle-kit generate",
+    "migrate": "bun --env-file=.env.development drizzle-kit migrate",
+    "studio": "bun --env-file=.env.development drizzle-kit studio"
   },
   "dependencies": {
     "@paralleldrive/cuid2": "2.2.2",
