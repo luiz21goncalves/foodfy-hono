@@ -29,5 +29,18 @@ app.use("/api/*", timeout(DEFAULT_TIMEOUT));
 
 const apiRoutes = app.route("/api", routes);
 
+apiRoutes.notFound((c) => {
+  const statusCode = 404;
+
+  return c.json(
+    {
+      message: `Route ${c.req.method}:${c.req.path} not found`,
+      statusCode,
+      error: "Not Found",
+    },
+    statusCode,
+  );
+});
+
 export type ApiRoutes = typeof apiRoutes;
 export { app };
