@@ -10,17 +10,10 @@ WORKDIR /temp/prod
 COPY package.json bun.lockb ./
 RUN bun install --frozen-lockfile --production --ignore-scripts
 
-FROM base AS builder
-COPY --from=dependencies /temp/dev/node_modules node_modules
-COPY . .
-ENV NODE_ENV=production
-RUN bun run build
-
 FROM base AS release
 ENV NODE_ENV=production
 COPY public /usr/src/app/public
 COPY --from=dependencies /temp/prod/node_modules node_modules
-COPY --from=builder /usr/src/app/dist dist
-COPY --from=builder /usr/src/app/package.json .
+COPY . /usr/src/app/
 USER bun
 ENTRYPOINT [ "bun", "run", "start" ]
