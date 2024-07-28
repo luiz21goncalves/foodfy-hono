@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { serveStatic } from "hono/bun";
 import { cors } from "hono/cors";
 import { etag } from "hono/etag";
 import { logger } from "hono/logger";
@@ -29,7 +30,9 @@ app.use("/*", secureHeaders());
 app.use("/api/*", timing());
 app.use("/api/*", timeout(DEFAULT_TIMEOUT));
 
-app.route("*", webRoutes);
+app.use("/public/*", serveStatic({ root: "./" }));
+
+app.route("/", webRoutes);
 const apiRoutes = app.route("/api", httpRoutes);
 
 apiRoutes.notFound((c) => {
