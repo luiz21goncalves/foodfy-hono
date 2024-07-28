@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "bun --env-file=.env.development run --hot src/http/server.ts",
     "build": "bun build src/http/server.ts --outdir dist --minify --format esm --splitting --target bun",
-    "start": "bun run dist/server.js",
+    "start": "bun run src/http/server.ts",
     "lint": "bunx @biomejs/biome check .",
     "lint:fix": "bunx @biomejs/biome check --write .",
     "prepare": "husky",
