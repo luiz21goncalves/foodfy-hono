@@ -4,5 +4,5 @@ import { Home } from "../pages/home";
 export const routes = new Hono();
 
 routes.get("/", (c) => {
-  return c.html(<Home />);
+  return c.render(<Home />);
 });
