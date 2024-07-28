@@ -1,4 +1,4 @@
-FROM oven/bun:1.1.21-alpine as base
+FROM oven/bun:1.1.21-alpine AS base
 WORKDIR /usr/src/app
 
 FROM base AS dependencies
@@ -18,6 +18,7 @@ RUN bun run build
 
 FROM base AS release
 ENV NODE_ENV=production
+COPY public /usr/src/app/public
 COPY --from=dependencies /temp/prod/node_modules node_modules
 COPY --from=builder /usr/src/app/dist dist
 COPY --from=builder /usr/src/app/package.json .
